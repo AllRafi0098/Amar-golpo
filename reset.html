@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+    <style>
+        /* Body styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('/Picsart_24-09-28_10-10-40-623.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Navbar styling */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        /* Reset box styling */
+        .reset-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Form styling */
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .reset-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Reset Box -->
+    <div class="reset-box">
+        <h2>Reset Your Password</h2>
+        <form id="reset-form" onsubmit="return validateResetForm()">
+            <input type="email" id="reset-email" placeholder="Enter your email" required>
+            <input type="submit" value="Reset Password">
+        </form>
+    </div>
+<h2>forgot your password</h2>
+    <script>
+        // JavaScript form validation for reset password
+        function validateResetForm() {
+            var email = document.getElementById('reset-email').value;
+
+            var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            alert("Password reset instructions sent to your email!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
