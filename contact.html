@@ -156,8 +156,13 @@ nav li a:hover {
             
         </div>
     </div>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   // Initialize EmailJS
+  (function() {
+    emailjs.init("qUiIX1yqV97azQWJh");  // Replace with your actual EmailJS user ID
+  })();
+
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default submission
 
@@ -178,8 +183,9 @@ nav li a:hover {
         btn.value = 'Send Message'; // Reset the button text after error
         alert(JSON.stringify(err)); // Display error details
       });
-});
+  });
 </script>
+
           
   <!-- Footer -->
     <footer>
