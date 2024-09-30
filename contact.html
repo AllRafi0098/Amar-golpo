@@ -137,7 +137,7 @@ nav li a:hover {
       
         <h2>Contact Us</h2>
         
-        <form action="#index.html">
+        <form id="contact-form" action="#" method="POST">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
             <textarea placeholder="Your Message" rows="5" required></textarea>
@@ -156,7 +156,31 @@ nav li a:hover {
             
         </div>
     </div>
+<script>
+  // Initialize EmailJS
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default submission
 
+    // Set the button text to indicate sending
+    const btn = event.target.querySelector('input[type="submit"]');
+    btn.value = 'Sending...';
+
+    // EmailJS service and template IDs
+    const serviceID = 'default_service';
+    const templateID = 'template_qvlszzp';
+
+    // Send the form data using EmailJS
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        btn.value = 'Send Message'; // Reset the button text after success
+        alert('Message sent successfully!');
+      }, (err) => {
+        btn.value = 'Send Message'; // Reset the button text after error
+        alert(JSON.stringify(err)); // Display error details
+      });
+});
+</script>
+          
   <!-- Footer -->
     <footer>
         <p>&copy; 2024 Amar Golpo. All rights reserved.</p>
