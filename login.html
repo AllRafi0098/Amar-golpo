@@ -1,192 +1,522 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
- 
-    
-        /* Body styling */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-image: url('Picsart_24-09-28_10-10-40-623.jpg'); /* Replace with your background image */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-       
-        
-nav {
-  background-color: #; /* আপনার পছন্দমতো রং */
-  overflow: ;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Amar Golpo</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+
+    background:
+    linear-gradient(135deg,rgba(12,15,35,.85),rgba(40,20,65,.75)),
+    url('Picsart_24-09-28_10-10-40-623.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+/* NAVBAR */
+
+header {
+    width: 100%;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ffb347;
 }
 
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+    display: flex;
+    list-style: none;
+    gap: 30px;
 }
 
-nav li {
-  float: left;
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: .3s;
+    position: relative;
 }
 
-nav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+nav ul li a:hover {
+    color: #ffb347;
 }
 
-nav li a:hover {
-  background-color: #141414; /* হোভারে রং পরিবর্তন */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffb347;
+    left: 0;
+    bottom: -6px;
+    transition: .3s;
 }
 
+nav ul li a:hover::after {
+    width: 100%;
+}
 
+/* LOGIN SECTION */
 
-        /* Login box styling */
-        .login-box {
-            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
-            padding: 40px;
-            width: 350px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+.login-container {
+    min-height: 85vh;
 
-        /* Add an image to the login box */
-        .login-box img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        /* Form styling */
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
+    padding: 40px 20px;
+}
 
-        input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
+.login-box {
+    width: 100%;
+    max-width: 420px;
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+    padding: 40px 35px;
 
- /* Social media links styling */
-        .social-links {
-          background-color:#FFFFFF;
-          transform:20px;
-          
-            margin-top: 20px;
-            text-align: center;
-        }
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(20px);
 
-        .social-links a {
-            text-decoration: none;
-            color: #333;
-            font-size: 20px;
-            margin: 0 15px;
-        }
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 22px;
 
-        .social-links a:hover {
-            color: #555;
-        }
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
 
+    text-align: center;
 
+    animation: appear .8s ease;
+    transition: .4s;
+}
 
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
 
-        /* Sign up/in links */
-        .signup-link {
-            margin-top: 20px;
-        }
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
 
-        .signup-link a {
-            text-decoration: none;
-            color: #4CAF50;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .signup-link a:hover {
-            color: #3e8e41;
-        }
-        
-                /* Responsive styling for smaller screens */
-        @media (max-width: 768px) {
-            .story-section {
-                flex-direction: column;
-            }
+/* AVATAR */
 
-    </style>
+.avatar {
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 4px solid #ffb347;
+
+    margin-bottom: 18px;
+
+    box-shadow: 0 5px 20px rgba(255,179,71,.25);
+}
+
+/* HEADING */
+
+.login-box h2 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #ddd;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+/* INPUTS */
+
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 17px;
+
+    background: rgba(255,255,255,.1);
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 12px;
+
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: .3s;
+}
+
+.input-group input::placeholder {
+    color: #ddd;
+}
+
+.input-group input:focus {
+    border-color: #ffb347;
+    background: rgba(255,255,255,.17);
+
+    box-shadow: 0 0 12px rgba(255,179,71,.2);
+}
+
+/* PASSWORD */
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 65px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    color: #ffb347;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,#ffb347,#ff7b54);
+
+    color: #222;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,179,71,.35);
+}
+
+/* SIGNUP LINKS */
+
+.signup-link {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #ddd;
+    line-height: 2.2;
+}
+
+.signup-link a {
+    color: #ffb347;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.signup-link a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* SOCIAL LINKS */
+
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links p {
+    color: #ddd;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    margin: 0 7px;
+
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.2);
+
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.social-links img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: #ffb347;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 20px;
+
+    background: rgba(0,0,0,.25);
+
+    color: #ddd;
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 10px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .login-box {
+        padding: 30px 22px;
+    }
+
+    .login-box h2 {
+        font-size: 23px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
+<!-- NAVBAR -->
 
- <nav>
-         
-   
-<nav>
-  <ul>
-    <li><a href="index.html">home</a></li>
-    <li><a href="about.html">about</a></li>
-    <li><a href="contact.html">contact</a></li>
-    <li><a href="login.html">login</a></li>
-  </ul>
-</nav>
+<header>
+
+    <div class="logo">
+        Amar <span>Golpo</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+</header>
 
 
+<!-- LOGIN SECTION -->
+
+<main class="login-container">
 
     <div class="login-box">
-        <!-- Image inside the login box -->
-        <img src="login.png" alt="Login Avatar"> <!-- Replace with your own avatar image -->
-        
-        <h2>Login to your account</h2>
-        
-        <form action="#">
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
-            <input type="submit" value="Login">
+
+        <img src="login.png" alt="Login Avatar" class="avatar">
+
+        <h2>Welcome Back!</h2>
+
+        <p class="subtitle">
+            Login to continue your journey with Amar Golpo.
+        </p>
+
+        <form id="login-form">
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    autocomplete="username"
+                    required>
+
+            </div>
+
+            <div class="input-group password-box">
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    required>
+
+                <button
+                    type="button"
+                    class="toggle-password"
+                    id="togglePassword">
+                    Show
+                </button>
+
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login →
+            </button>
+
         </form>
-        
-             
-        </div>
-        
-        <!-- Social media links -->
-        <div class="social-links">
-            <p>Connect with us:</p>
-            <a href="#https://www.facebook.com/allu.rafi.92?mibextid=ZbWKwL"><img src="
-            fi.png". alt="Facebook" width="30"></a> <!-- Add your Facebook icon -->
-            <a href="#https://www.instagram.com/allu.rafi?igsh=MXc3d3B4aTd3Mmc5Yw=="><img src="insta.png" alt="Instagram" width="30"></a> <!-- Add your Instagram icon -->
-        
-        
-        <!-- Sign up/in links -->
+
+
+        <!-- SIGNUP -->
+
         <div class="signup-link">
-            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-            <p>Forgot your password? <a href="reset.html">Reset it</a></p>
+
+            <p>
+                Don't have an account?
+                <a href="signup.html">Sign Up</a>
+            </p>
+
+            <p>
+                Forgot your password?
+                <a href="reset.html">Reset it</a>
+            </p>
+
         </div>
+
+
+        <!-- SOCIAL MEDIA -->
+
+        <div class="social-links">
+
+            <p>Connect With Us</p>
+
+            <a
+                href="https://www.facebook.com/allu.rafi.92?mibextid=ZbWKwL"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <img src="fi.png" alt="Facebook">
+
+            </a>
+
+            <a
+                href="https://www.instagram.com/allu.rafi?igsh=MXc3d3B4aTd3Mmc5Yw=="
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <img src="insta.png" alt="Instagram">
+
+            </a>
+
+        </div>
+
     </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 Amar Golpo. All Rights Reserved. | Made with ❤️</p>
+</footer>
+
+
+<!-- SHOW / HIDE PASSWORD -->
+
+<script>
+
+const password = document.getElementById('password');
+const toggle = document.getElementById('togglePassword');
+
+toggle.addEventListener('click', function() {
+
+    if(password.type === 'password') {
+
+        password.type = 'text';
+        toggle.innerText = 'Hide';
+
+    } else {
+
+        password.type = 'password';
+        toggle.innerText = 'Show';
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
