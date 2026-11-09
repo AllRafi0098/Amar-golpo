@@ -1,195 +1,427 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-image: url('Picsart_24-09-28_10-10-40-623.jpg'); /* Replace with your background image */
-            background-size: cover;
-            background-position: center;
-            display: fixed;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        nav {
-  background-color: #; /* আপনার পছন্দমতো রং */
-  overflow: ;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us | Amar Golpo</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background:
+    linear-gradient(135deg, rgba(12,15,35,.85), rgba(40,20,65,.75)),
+    url('Picsart_24-09-28_10-10-40-623.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+/* Navbar */
+
+header {
+    width: 100%;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.logo span {
+    color: #ffb347;
 }
 
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+    display: flex;
+    list-style: none;
+    gap: 30px;
 }
 
-nav li {
-  float: left;
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: .3s;
+    position: relative;
 }
 
-nav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+nav ul li a:hover {
+    color: #ffb347;
 }
 
-nav li a:hover {
-  background-color: #141414; /* হোভারে রং পরিবর্তন */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffb347;
+    left: 0;
+    bottom: -6px;
+    transition: .3s;
 }
 
+nav ul li a:hover::after {
+    width: 100%;
+}
 
-        .contact-box {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        }
+/* Main Section */
 
-        .contact-box h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-        }
+.main {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
 
-        .contact-box input[type="text"], 
-        .contact-box input[type="email"], 
-        .contact-box textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
+.contact-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 22px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
+    animation: appear .8s ease;
+    transition: .4s;
+}
 
-        .contact-box input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
 
-        .contact-box input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        /* Social media links styling */
-        .social-links {
-            margin-top: 20px;
-            text-align: center;
-        }
+.contact-box h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
-        .social-links a {
-            text-decoration: none;
-            color: #333;
-            font-size: 20px;
-            margin: 0 15px;
-        }
+.contact-box .subtitle {
+    text-align: center;
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
 
-        .social-links a:hover {
-            color: #555;
-        }
+/* Form */
 
-        /* Responsive styling for smaller screens */
-        @media (max-width: 768px) {
-            .story-section {
-                flex-direction: column;
-            }
+.input-group {
+    margin-bottom: 18px;
+}
 
-    </style>
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 12px;
+    background: rgba(255,255,255,.1);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: .3s;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #ddd;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #ffb347;
+    background: rgba(255,255,255,.17);
+    box-shadow: 0 0 12px rgba(255,179,71,.2);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ffb347,#ff7b54);
+    color: #222;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,179,71,.35);
+}
+
+.submit-btn:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+/* Social Links */
+
+.social-links {
+    text-align: center;
+    margin-top: 28px;
+}
+
+.social-links p {
+    color: #ddd;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.2);
+    transition: .3s;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: #ffb347;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,.25);
+    color: #ddd;
+    font-size: 13px;
+}
+
+/* Mobile Responsive */
+
+@media(max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 10px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    .contact-box {
+        padding: 28px 20px;
+    }
+
+    .contact-box h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-      <nav>
-           <div>
-   <header>
-     <h1>
-      <b>Amar golpo</b>
-     </h1>
-   </header>
- </div>
-<nav>
-  <ul>
-    <li><a href="index.html">home</a></li>
-    <li><a href="about.html">about</a></li>
-    <li><a href="contact.html">contact</a></li>
-    <li><a href="login.html">login</a></li>
-  </ul>
-</nav>
-  
+<header>
+
+    <div class="logo">
+        Amar <span>Golpo</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+
+<main class="main">
 
     <div class="contact-box">
-      
-        <h2>Contact Us</h2>
-        
-          <form id="contact-form" action="#" method="POST">
-    <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
-    <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
-    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-    <input type="submit" value="Send Message">
-</form>
-        
-        
-        <!-- Social media links -->
+
+        <h2>Get In Touch</h2>
+
+        <p class="subtitle">
+            Have a question or a story to share?
+            We'd love to hear from you.
+        </p>
+
+        <form id="contact-form">
+
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="user_name"
+                    name="user_name"
+                    placeholder="Your Name"
+                    required>
+            </div>
+
+            <div class="input-group">
+                <input
+                    type="email"
+                    id="user_email"
+                    name="user_email"
+                    placeholder="Your Email Address"
+                    required>
+            </div>
+
+            <div class="input-group">
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Send Message →
+            </button>
+
+        </form>
+
         <div class="social-links">
-            <p>Connect with us:</p>
-            <a href="https://www.facebook.com/allu.rafi.92?mibextid=ZbWKwL"><img src="
-            fi.png". alt="Facebook" width="30"></a> <!-- Add your Facebook icon -->
-            <a href="https://www.instagram.com/allu.rafi?igsh=MXc3d3B4aTd3Mmc5Yw=="><img src="insta.png" alt="Instagram" width="30"></a> <!-- Add your Instagram icon -->
-            
-            
-            
+
+            <p>Connect With Us</p>
+
+            <a href="https://www.facebook.com/allu.rafi.92?mibextid=ZbWKwL"
+               target="_blank" rel="noopener noreferrer">
+                <img src="fi.png" alt="Facebook">
+            </a>
+
+            <a href="https://www.instagram.com/allu.rafi?igsh=MXc3d3B4aTd3Mmc5Yw=="
+               target="_blank" rel="noopener noreferrer">
+                <img src="insta.png" alt="Instagram">
+            </a>
+
         </div>
+
     </div>
+
+</main>
+
+
+<footer>
+    <p>© 2026 Amar Golpo. All Rights Reserved. | Made with ❤️</p>
+</footer>
+
+
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <script>
-  // Initialize EmailJS
-  (function() {
-    emailjs.init("qUiIX1yqV97azQWJh");  // Replace with your actual EmailJS user ID
-  })();
 
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default submission
+(function() {
+    emailjs.init("qUiIX1yqV97azQWJh");
+})();
 
-    // Set the button text to indicate sending
-    const btn = event.target.querySelector('input[type="submit"]');
-    btn.value = 'Sending...';
+document.getElementById('contact-form')
+.addEventListener('submit', function(event) {
 
-    // EmailJS service and template IDs
-    const serviceID = 'service_v1rhg2g';
-    const templateID = 'template_1f3xvph';
+    event.preventDefault();
 
-    // Send the form data using EmailJS
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(() => {
-        btn.value = 'Send Message'; // Reset the button text after success
-        alert('Message sent successfully!');
-      }, (err) => {
-        btn.value = 'Send Message'; // Reset the button text after error
-        alert(JSON.stringify(err)); // Display error details
-      });
-  });
+    const btn = this.querySelector('.submit-btn');
+
+    btn.disabled = true;
+    btn.innerText = 'Sending...';
+
+    emailjs.sendForm(
+        'service_v1rhg2g',
+        'template_1f3xvph',
+        this
+    )
+
+    .then(function() {
+
+        btn.disabled = false;
+        btn.innerText = 'Send Message →';
+
+        alert('Your message has been sent successfully! ❤️');
+
+        document.getElementById('contact-form').reset();
+
+    })
+
+    .catch(function(error) {
+
+        btn.disabled = false;
+        btn.innerText = 'Send Message →';
+
+        console.error('EmailJS Error:', error);
+
+        alert('Sorry! Message could not be sent. Please try again.');
+
+    });
+
+});
+
 </script>
 
-          
-  <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Amar Golpo. All rights reserved.</p>
-    </foote
 </body>
 </html>
